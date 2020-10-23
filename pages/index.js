@@ -4,6 +4,7 @@ import LastNumber from '../components/last-number'
 import ButtonSort from '../components/button-sort'
 import Numbers from '../components/numbers'
 import ButtonReset from '../components/button-reset'
+import Confeti from '../components/confeti'
 
 export default function Home () {
   return (
@@ -21,6 +22,7 @@ export default function Home () {
           </div>
         </div>
       </main>
+      <Confeti />
     </Page>
   )
 }
