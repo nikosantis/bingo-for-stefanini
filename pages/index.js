@@ -5,6 +5,8 @@ import ButtonSort from '../components/button-sort'
 import Numbers from '../components/numbers'
 import ButtonReset from '../components/button-reset'
 import Confeti from '../components/confeti'
+import ConfetiAll from '../components/confeti-all'
+import Footer from '../components/footer'
 
 export default function Home () {
   return (
@@ -23,6 +25,8 @@ export default function Home () {
         </div>
       </main>
       <Confeti />
+      <ConfetiAll />
+      <Footer />
     </Page>
   )
 }

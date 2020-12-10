@@ -7,12 +7,14 @@ const initialState = {
   numbers: [],
   lastNumber: '',
   loading: false,
-  finished: false
+  finished: false,
+  runConfetti: false
 }
 
 const RESET = 'RESET'
 const LOADING = 'LOADING'
 const GET_NUMBER = 'GET_NUMBER'
+const CONFETTI = 'CONFETTI'
 
 function random (numbersPicked, finished) {
   let repeated = false
@@ -50,6 +52,12 @@ function reducer (state, action) {
         loading: true
       }
     }
+    case CONFETTI: {
+      return {
+        ...state,
+        runConfetti: action.payload
+      }
+    }
     case GET_NUMBER: {
       let pickedNumbers = [...state.numbers]
       const getNumber = random(state.numbers, state.finished)
@@ -82,9 +90,11 @@ function BingoProvider (props) {
     setTimeout(() => dispatch({ type: 'GET_NUMBER' }), 1000)
   }, [])
 
+  const launchConfetti = useCallback((run) => dispatch({ type: CONFETTI, payload: run }), [])
+
   return (
     <BingoContextState.Provider value={state}>
-      <BingoContextDispatch.Provider value={{ sorting, reset }} {...props} />
+      <BingoContextDispatch.Provider value={{ sorting, reset, launchConfetti }} {...props} />
     </BingoContextState.Provider>
   )
 }

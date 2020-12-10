@@ -1,17 +1,18 @@
-import { cartons } from '../lib/cartons'
+
+import { carton, cartonsIds } from '../lib/random-carton'
 import Page from '../components/page'
 import CartonNumbers from '../components/carton-numbers'
+import Footer from '../components/footer'
 
-export default function Carton ({ carton }) {
-  const dataCarton = carton[0]
+export default function Carton ({ carton, id }) {
   return (
     <Page>
       <main>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-5 col-12'>
-              <h1 className='mb-5'>Carton nº {dataCarton.carton}</h1>
-              <CartonNumbers numbers={dataCarton.data} />
+              <h1 className='mb-5'>Carton nº {id}</h1>
+              <CartonNumbers numbers={carton} />
             </div>
           </div>
         </div>
@@ -21,26 +22,28 @@ export default function Carton ({ carton }) {
             main {
               padding: 30px 0;
             }
+            h1 {
+              font-size: 2rem;
+              text-align: center;
+            }
           `}
         </style>
       </main>
+      <Footer />
     </Page>
   )
 }
 
 export async function getStaticProps ({ params }) {
-  const res = cartons.filter(x => x.carton === params.carton)
-  return { props: { carton: res } }
+  const res = carton()
+  return { props: { carton: res, id: params.carton } }
 }
 
 export async function getStaticPaths () {
-  const ids = cartons.map(x => {
+  const idNumbers = cartonsIds.map(id => {
     return {
-      params: { carton: x.carton }
+      params: { carton: id }
     }
   })
-  return {
-    paths: [...ids],
-    fallback: false
-  }
+  return { paths: [...idNumbers], fallback: false }
 }

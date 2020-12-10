@@ -1,7 +1,8 @@
-import { useBingoDispatch } from '../context/bingo-context'
+import { useBingoDispatch, useBingoState } from '../context/bingo-context'
 
 export default function ButtonReset () {
-  const { reset } = useBingoDispatch()
+  const { reset, launchConfetti } = useBingoDispatch()
+  const { runConfetti } = useBingoState()
   return (
     <section className='button-sort'>
       <div className='container'>
@@ -13,6 +14,12 @@ export default function ButtonReset () {
                 onClick={reset}
               >
                 Reiniciar
+              </button>
+              <button
+                className='btn btn-info btn-lg mx-auto'
+                onClick={() => launchConfetti(!runConfetti)}
+              >
+                Confetti
               </button>
             </div>
           </div>

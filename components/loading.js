@@ -29,7 +29,7 @@ export default function Loading () {
             height: 55px;
             margin: 8px;
             border-radius: 50%;
-            background: var(--sn-brand);
+            background: var(--ns-brand);
             animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
           }
         `}

@@ -14,6 +14,7 @@ export default function Page ({ children }) {
           .bingo {
             width: 100vw;
             min-height: 100vh;
+            position: relative;
           }
         `}
       </style>
@@ -23,8 +24,8 @@ export default function Page ({ children }) {
           body {
             width: 100vw;
             min-height: 100vh;
-            background: var(--sn-bg);
-            color: var(--sn-fg);
+            background: var(--ns-bg);
+            color: var(--ns-fg);
           }
         `}
       </style>

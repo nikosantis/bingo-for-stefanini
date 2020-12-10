@@ -91,10 +91,10 @@ export default function Numbers () {
             align-item: center;
             padding: 15px;
             border-right: 1px solid #ccc;
-            background: pink;
+            background: var(--ns-green);
           }
           .numbers-letter span {
-            color: var(--sn-fg);
+            color: var(--ns-fg);
             font-weight: bold;
           }
         `}

@@ -1,7 +1,6 @@
 import CartonNumber from './carton-number'
 
 export default function CartonNumbers ({ numbers }) {
-  console.log(numbers)
   return (
     <div className='numbers'>
       <div className='numbers-row'>
@@ -36,9 +35,9 @@ export default function CartonNumbers ({ numbers }) {
           </span>
         </div>
         {numbers.n.map((x, index) => {
-          if (x === null) {
+          if (x === 'libre') {
             return (
-              <div className='nn'>NN</div>
+              <div key={index} className='nn'>X</div>
             )
           }
           return (
@@ -86,18 +85,30 @@ export default function CartonNumbers ({ numbers }) {
               flex-direction: column;
               border-left: 1px solid #ccc;
               border-bottom: 1px solid #ccc;
+            }
+            .numbers-row:last-child {
               border-right: 1px solid #ccc;
             }
             .numbers-letter {
               display: flex;
               justify-content: center;
               align-item: center;
-              padding: 30px 15px;
-              border-right: 1px solid #ccc;
-              background: pink;
+              border-right: 1px solid var(--ns-green);
+              background: var(--ns-green);
+              padding: 20px;
+            }
+            @media (min-width: 768px) {
+              .numbers-letter {
+                padding: 50px;
+              }
+            }
+            @media (min-width: 992px) {
+              .numbers-letter {
+                padding: 30px 15px;
+              }
             }
             .numbers-letter span {
-              color: var(--sn-fg);
+              color: var(--ns-fg);
               font-weight: bold;
             }
             .nn {
@@ -106,8 +117,19 @@ export default function CartonNumbers ({ numbers }) {
               justify-content: center;
               align-item: center;
               border-right: 1px solid #ccc;
-              padding: 25px 15px;
+              background-color: var(--ns-yellow);
               border-bottom: 1px solid #ccc;
+              padding: 20px;
+            }
+            @media (min-width: 768px) {
+              .nn {
+                padding: 50px;
+              }
+            }
+            @media (min-width: 992px) {
+              .nn {
+                padding: 30px 15px;
+              }
             }
           `}
       </style>

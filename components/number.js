@@ -26,11 +26,11 @@ function Number ({ num }) {
             border-right: none;
           }
           .number span {
-            color: var(--sn-fg);
+            color: var(--ns-fg);
             font-weight: bold;
           }
           .number.active {
-            background: green;
+            background: var(--ns-red);
           }
           .number.active span {
             color: #fff;

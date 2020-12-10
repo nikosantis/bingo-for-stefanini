@@ -14,10 +14,20 @@ export default function CartonNumber ({ number }) {
             flex: 1;
             justify-content: center;
             align-item: center;
-            border-right: 1px solid #ccc;
-            padding: 25px 15px;
             border-bottom: 1px solid #ccc;
-            background-color: ${clicked ? 'red' : ''};
+            background-color: ${clicked ? '#e74645' : ''};
+            cursor: pointer;
+            padding: 20px;
+          }
+          @media (min-width: 768px) {
+            .number {
+              padding: 50px;
+            }
+          }
+          @media (min-width: 992px) {
+            .number {
+              padding: 30px 15px;
+            }
           }
         `}
       </style>
