@@ -15,7 +15,7 @@ export default function LastNumber () {
       <style jsx>
         {`
           .last-number {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: center;
           }

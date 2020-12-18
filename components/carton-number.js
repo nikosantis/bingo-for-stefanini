@@ -17,16 +17,16 @@ export default function CartonNumber ({ number }) {
             border-bottom: 1px solid #ccc;
             background-color: ${clicked ? '#e74645' : ''};
             cursor: pointer;
-            padding: 20px;
+            padding: 15px 0;
           }
           @media (min-width: 768px) {
             .number {
-              padding: 50px;
+              padding: 50px 0;
             }
           }
           @media (min-width: 992px) {
             .number {
-              padding: 30px 15px;
+              padding: 30px 0;
             }
           }
         `}

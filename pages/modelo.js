@@ -1,11 +1,17 @@
-import { cartons } from '../lib/cartons'
-import { cartonsIds } from '../lib/cartons_ids'
 import Page from '../components/page'
 import CartonNumbers from '../components/carton-numbers'
 import Footer from '../components/footer'
 import Logo from '../components/logo'
 
-export default function Carton ({ carton, cartonId }) {
+const cartonModel = {
+  b: ['x', 'x', 'x', 'x', 'x'],
+  i: ['x', 'x', 'x', 'x', 'x'],
+  n: ['x', 'x', 'libre', 'x', 'x'],
+  g: ['x', 'x', 'x', 'x', 'x'],
+  o: ['x', 'x', 'x', 'x', 'x']
+}
+
+export default function Modelo () {
   return (
     <Page>
       <main>
@@ -19,7 +25,7 @@ export default function Carton ({ carton, cartonId }) {
               </div>
               <div className='col-lg-6 col-12'>
                 <div className='title'>
-                  <h1>Carton de Bingo Nº {cartonId}</h1>
+                  <h1>Carton de Bingo Modelo</h1>
                 </div>
               </div>
             </div>
@@ -28,7 +34,7 @@ export default function Carton ({ carton, cartonId }) {
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-5 col-12'>
-              <CartonNumbers numbers={carton} />
+              <CartonNumbers numbers={cartonModel} />
             </div>
           </div>
         </div>
@@ -64,18 +70,4 @@ export default function Carton ({ carton, cartonId }) {
       <Footer />
     </Page>
   )
-}
-
-export async function getStaticProps ({ params }) {
-  const getCartons = cartons.filter(x => x.carton === params.carton)
-  return { props: { cartonId: params.carton, carton: getCartons[0].data } }
-}
-
-export async function getStaticPaths () {
-  const idNumbers = cartonsIds.map(id => {
-    return {
-      params: { carton: id }
-    }
-  })
-  return { paths: [...idNumbers], fallback: false }
 }
