@@ -1,16 +1,16 @@
-import Logo from "./logo";
+import Logo from './logo'
 
-export default function Header() {
+export default function Header () {
   return (
     <header>
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <div className="logo-box">
+      <div className='container'>
+        <div className='row align-items-center'>
+          <div className='col-lg-6'>
+            <div className='logo-box'>
               <Logo height={80} />
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className='col-lg-6'>
             <h1>Póngale nombre a la RETRO 😮</h1>
           </div>
         </div>
@@ -32,5 +32,5 @@ export default function Header() {
         `}
       </style>
     </header>
-  );
+  )
 }
